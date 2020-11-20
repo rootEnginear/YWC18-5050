@@ -46,6 +46,13 @@ export const StyledBreadcrumb = styled.section`
 
 		> a {
 			color: #fff;
+
+			&:focus {
+				outline: none;
+				z-index: 1;
+				box-shadow: 0 0 0 4px #fff3;
+				border-radius: 2px;
+			}
 		}
 	}
 `
