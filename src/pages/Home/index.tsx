@@ -13,6 +13,7 @@ export default function Home() {
 				<title>ค้นหา - คนละครึ่ง</title>
 			</Head>
 			<AppBreadcrumb pages={pages} />
+			<h1>ผลการค้นหา [] ทั้งหมด</h1>
 		</>
 	)
 }

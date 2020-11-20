@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { isDesktop } from 'styles/variables'
+import { isDesktop, colorAccented } from 'styles/variables'
 
 const mobileHeight = '45.5px'
 const desktopHeight = '52px'
 
 export const StyledBreadcrumb = styled.section`
-	background: #283a7c;
+	background: ${colorAccented};
 	color: #fff;
 	height: ${mobileHeight};
 	padding: 0 16px;
