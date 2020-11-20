@@ -5,6 +5,8 @@ import { AppBreadcrumb } from 'components/AppBreadcrumb'
 import { AppHeader } from 'components/AppHeader'
 import { AppFilter } from 'components/AppFilter'
 import { API_STATES, useApi } from 'hooks/useApi'
+import { AppCard } from 'components/AppCard'
+import { FilterCol, SearchHeader } from './style'
 
 export default function Home() {
 	const pages = [
@@ -65,9 +67,9 @@ export default function Home() {
 					''
 				) : (
 					<>
-						<h1>ผลการค้นหา [] ทั้งหมด</h1>
+						<SearchHeader>ผลการค้นหาทั้งหมด</SearchHeader>
 						<Row>
-							<Col fit>
+							<FilterCol fit>
 								<AppFilter
 									{...{
 										categories,
@@ -82,12 +84,11 @@ export default function Home() {
 										changeCurrentSubCategories,
 									}}
 								/>
-							</Col>
+							</FilterCol>
 							<Col>
-								{currentCategory}
-								{currentProvince}
-								{currentPriceRange}
-								{currentSubCategories}
+								{data?.merchants.map((m) => (
+									<AppCard data={m} key={m.shopNameTH} />
+								))}
 							</Col>
 						</Row>
 					</>

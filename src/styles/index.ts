@@ -15,7 +15,13 @@ export const GlobalStyle = createGlobalStyle`
 
 	h1 {
 		font-size: 1.5rem;
-		margin: 1.65rem 0 3.75rem;
+		margin: 1.65rem 0;
+	}
+
+	.nobr {
+		white-space: nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
 	}
 `
 
