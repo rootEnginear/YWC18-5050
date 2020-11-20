@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Col } from 'styles/index'
-import { isDesktop, colorAccented } from 'styles/variables'
+import { isDesktop } from 'styles/variables'
 
 const mobileDimension = {
 	height: 61,
@@ -104,6 +104,7 @@ export const SearchBoxContainer = styled.div`
 		}
 
 		&-input {
+			width: 100%;
 			padding: 0 13.8px;
 			outline: none;
 			line-height: 1;
