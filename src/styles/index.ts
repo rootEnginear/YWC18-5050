@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import fonts from './fonts'
+import { isDesktop } from 'styles/variables'
 
 export const GlobalStyle = createGlobalStyle`
 	${fonts}
@@ -14,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	h1 {
 		font-size: 1.5rem;
-		margin: 1.65rem 0;
+		margin: 1.65rem 0 3.75rem;
 	}
 `
 
@@ -27,4 +28,12 @@ export const Row = styled.div`
 export const Col = styled.div`
 	${(props) => (props.paddingless ? '' : 'padding: 0 0.5rem;')}
 	${(props) => (props.fit ? '' : 'flex: 1 1 0%;')}
+`
+
+export const Container = styled.section`
+	padding: 0 16.35px;
+
+	@media screen and (${isDesktop}) {
+		padding: 0 18.6px;
+	}
 `
