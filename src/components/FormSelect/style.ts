@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledFormSelect = styled.select`
-	width: 100%;
+	width: 322px;
 	padding: 3px 8.8px;
 	outline: none;
 	font-size: 0.9rem;
