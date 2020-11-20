@@ -58,6 +58,12 @@ export const FilterButton = styled.button`
 	box-sizing: border-box;
 	border: none;
 	background: transparent;
+	transition: box-shadow 0.3s;
+
+	&:focus {
+		z-index: 1;
+		box-shadow: 0 0 0 4px #1990ff33;
+	}
 `
 
 export const SearchBoxContainer = styled.div`
@@ -74,6 +80,7 @@ export const SearchBoxContainer = styled.div`
 	> .searchbox {
 		&-select {
 			display: none;
+			transition: box-shadow 0.3s;
 
 			&:hover {
 				background: #f8f8f8;
@@ -81,7 +88,7 @@ export const SearchBoxContainer = styled.div`
 
 			&:focus {
 				z-index: 1;
-				box-shadow: 0 0 0 4px ${colorAccented + '33'};
+				box-shadow: 0 0 0 4px #1990ff33;
 			}
 
 			@media screen and (${isDesktop}) {
@@ -92,6 +99,7 @@ export const SearchBoxContainer = styled.div`
 				display: unset;
 				border: none;
 				border-right: 1px solid #c4c4c4;
+				cursor: pointer;
 			}
 		}
 
@@ -104,6 +112,7 @@ export const SearchBoxContainer = styled.div`
 			border: none;
 			text-overflow: ellipsis;
 			border-radius: 10px 0 0 10px;
+			transition: box-shadow 0.3s;
 
 			@media screen and (${isDesktop}) {
 				border-radius: 0;
@@ -111,7 +120,7 @@ export const SearchBoxContainer = styled.div`
 
 			&:focus {
 				z-index: 1;
-				box-shadow: 0 0 0 4px ${colorAccented + '33'};
+				box-shadow: 0 0 0 4px #1990ff33;
 			}
 		}
 
@@ -125,6 +134,7 @@ export const SearchBoxContainer = styled.div`
 			border-left: 1px solid #c4c4c4;
 			border-radius: 0 10px 10px 0;
 			background: #f8f8f8;
+			transition: box-shadow 0.3s;
 
 			&:hover {
 				background: #ebebeb;
@@ -136,7 +146,7 @@ export const SearchBoxContainer = styled.div`
 
 			&:focus {
 				z-index: 1;
-				box-shadow: 0 0 0 4px ${colorAccented + '33'};
+				box-shadow: 0 0 0 4px #1990ff33;
 			}
 
 			@media screen and (${isDesktop}) {

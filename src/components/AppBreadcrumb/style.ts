@@ -46,6 +46,7 @@ export const StyledBreadcrumb = styled.section`
 
 		> a {
 			color: #fff;
+			transition: box-shadow 0.3s;
 
 			&:focus {
 				outline: none;

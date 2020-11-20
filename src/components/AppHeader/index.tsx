@@ -16,7 +16,7 @@ const Logo = () => (
 export const AppHeader = () => {
 	return (
 		<StyledHeader>
-			<Row>
+			<Row vcentered>
 				<Col fit>
 					<Logo />
 				</Col>

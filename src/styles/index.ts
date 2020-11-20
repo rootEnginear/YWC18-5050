@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
 export const Row = styled.div`
 	display: flex;
 	margin: 0 -0.5rem;
-	align-items: center;
+	${(props) => (props.vcentered ? 'align-items: center;' : '')}
 `
 
 export const Col = styled.div`
