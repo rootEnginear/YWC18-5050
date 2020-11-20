@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import fonts from './fonts'
-import { isDesktop } from './variables'
 
 export const GlobalStyle = createGlobalStyle`
 	${fonts}
@@ -26,6 +25,6 @@ export const Row = styled.div`
 `
 
 export const Col = styled.div`
-	padding: 0 0.5rem;
+	${(props) => (props.paddingless ? '' : 'padding: 0 0.5rem;')}
 	${(props) => (props.fit ? '' : 'flex: 1 1 0%;')}
 `

@@ -49,3 +49,13 @@ export const ColFilter = styled(Col)`
 		display: none;
 	}
 `
+
+export const FilterButton = styled.button`
+	padding: ${(mobileDimension.innerHeight() - 24) / 2}px 0.5rem;
+	outline: none;
+	height: ${mobileDimension.innerHeight()}px;
+	cursor: pointer;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+`

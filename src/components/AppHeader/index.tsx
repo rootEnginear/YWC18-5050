@@ -1,4 +1,4 @@
-import { StyledHeader, PictureLogo, ColFilter } from './style'
+import { StyledHeader, PictureLogo, ColFilter, FilterButton } from './style'
 import { Row, Col } from 'styles/index'
 import { isDesktop, colorAccented } from 'styles/variables'
 import { IconFilter } from 'components/AppIcon'
@@ -19,8 +19,10 @@ export const AppHeader = () => {
 					<Logo />
 				</Col>
 				<Col>Search Box</Col>
-				<ColFilter fit>
-					<IconFilter color={colorAccented} />
+				<ColFilter fit paddingless>
+					<FilterButton>
+						<IconFilter color={colorAccented} size="24px" />
+					</FilterButton>
 				</ColFilter>
 			</Row>
 		</StyledHeader>
