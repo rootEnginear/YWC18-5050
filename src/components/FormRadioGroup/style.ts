@@ -5,6 +5,7 @@ export const StyledRadioContainer = styled.div`
 		width: 0;
 		height: 0;
 		position: absolute;
+		transform: scale(0);
 	}
 
 	> label {
