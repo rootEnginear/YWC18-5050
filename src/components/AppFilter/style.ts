@@ -3,6 +3,7 @@ import { isDesktop } from 'styles/variables'
 
 export const StyledFilter = styled.aside`
 	display: none;
+	background: white;
 
 	@media screen and (${isDesktop}) {
 		display: block;

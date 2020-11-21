@@ -6,6 +6,7 @@ export const StyledCard = styled.article`
 	box-shadow: 0 0 1px #c9e0e9;
 	border-radius: 1px;
 	margin-bottom: 8px;
+	background: white;
 
 	@media screen and (${isDesktop}) {
 		display: flex;
