@@ -64,5 +64,5 @@ export const useApi = () => {
 		fetchData()
 	}, [])
 
-	return data
+	return { info: data, fetchData }
 }

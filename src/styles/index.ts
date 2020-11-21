@@ -23,6 +23,12 @@ export const GlobalStyle = createGlobalStyle`
 		overflow:hidden;
 		text-overflow:ellipsis;
 	}
+
+	img {
+		max-width: 100%;
+		display: block;
+		margin: auto;
+	}
 `
 
 export const Row = styled.div`

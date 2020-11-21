@@ -6,7 +6,7 @@ import { AppHeader } from 'components/AppHeader'
 import { AppFilter } from 'components/AppFilter'
 import { API_STATES, useApi } from 'hooks/useApi'
 import { AppCard } from 'components/AppCard'
-import { FilterCol, SearchHeader } from './style'
+import { FilterCol, SearchHeader, LoadmoreButton } from './style'
 import useGeolocation from 'hooks/useGeolocation'
 
 export default function Home() {
@@ -25,7 +25,8 @@ export default function Home() {
 	}
 	const geolocation = useGeolocation({}, onGeolocationUpdate)
 
-	const { state, error, data } = useApi()
+	const { info, fetchData } = useApi()
+	const { state, error, data } = info
 
 	useEffect(() => {
 		if (state === API_STATES.SUCCESS) {
@@ -160,7 +161,11 @@ export default function Home() {
 			<AppBreadcrumb pages={pages} />
 			<Container>
 				{state === API_STATES.ERROR ? (
-					''
+					<>
+						<img src="/img/error.svg" alt="เกิดข้อผิดพลาด" width="40%" />
+						<h1 style={{ textAlign: 'center' }}>เกิดข้อผิดพลาดทางระบบขึ้น</h1>
+						<p style={{ textAlign: 'center' }}>กรุณาแจ้งผู้พัฒนาและลองใหม่ในภายหลัง</p>
+					</>
 				) : (
 					<>
 						<SearchHeader>
@@ -185,9 +190,20 @@ export default function Home() {
 								/>
 							</FilterCol>
 							<Col>
-								{filteredMerchants?.map((m) => (
-									<AppCard data={m} key={m.shopNameTH} />
-								))}
+								{filteredMerchants?.length === 0 ? (
+									<>
+										<img src="/img/not_found.svg" alt="ไม่พบสถานที่ที่คุณกำลังหา" width="40%" />
+										<h1 style={{ textAlign: 'center' }}>ไม่พบสถานที่ที่คุณกำลังหา</h1>
+										<p style={{ textAlign: 'center' }}>
+											ร้านค้าที่ท่านค้นหาอาจไม่ได้เข้าร่วมโครงการคนละครึ่ง
+										</p>
+									</>
+								) : (
+									filteredMerchants?.map((m) => <AppCard data={m} key={m.shopNameTH} />)
+								)}
+								{filteredMerchants?.length !== 0 && (
+									<LoadmoreButton onClick={fetchData}>ดูเพิ่มเติม</LoadmoreButton>
+								)}
 							</Col>
 						</Row>
 					</>
