@@ -2,6 +2,7 @@ import { StyledHeader, PictureLogo, ColFilter, FilterButton, SearchBoxContainer 
 import { Row, Col } from 'styles/index'
 import { isDesktop, colorAccented } from 'styles/variables'
 import { IconFilter, IconSearch } from 'components/AppIcon'
+import { AppHeaderProps } from './types'
 
 const Logo = () => (
 	<a href="/">
@@ -13,7 +14,14 @@ const Logo = () => (
 	</a>
 )
 
-export const AppHeader = () => {
+export const AppHeader = ({
+	province,
+	currentProvince,
+	onProvinceChangeHandler,
+	searchString,
+	changeSearchString,
+	sumbitSearchString,
+}: AppHeaderProps) => {
 	return (
 		<StyledHeader>
 			<Row vcentered>
@@ -22,17 +30,29 @@ export const AppHeader = () => {
 				</Col>
 				<Col>
 					<SearchBoxContainer>
-						<select className="searchbox-select">
-							<option>พื้นที่ใกล้ฉัน</option>
-							<option>Placeholder 2</option>
-							<option>Placeholder 3</option>
+						<select
+							className="searchbox-select"
+							defaultValue={province[0]}
+							value={currentProvince}
+							onChange={onProvinceChangeHandler}>
+							{province &&
+								province.map((d, i) => (
+									<option value={i} key={d}>
+										{d}
+									</option>
+								))}
 						</select>
 						<input
 							className="searchbox-input"
 							type="text"
 							placeholder="ค้นหา ชื่อ ร้านอาหาร และเครื่องดื่ม ร้านธงฟ้า ร้านค้า OTOP และสินค้าทั่วไป"
+							value={searchString}
+							onChange={changeSearchString}
+							onKeyPress={(e) => {
+								if (e.key === 'Enter') sumbitSearchString()
+							}}
 						/>
-						<button className="searchbox-button" type="button">
+						<button className="searchbox-button" type="button" onClick={sumbitSearchString}>
 							<IconSearch />
 						</button>
 					</SearchBoxContainer>

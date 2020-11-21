@@ -27,10 +27,12 @@ export const AppCard = ({ data }: AppCardProps) => {
 		.replace(/&lt;strong&gt;/g, '<strong>')
 		.replace(/&lt;\/strong&gt;/g, '</strong>')
 
-	const getIcon = (criteria) => {
-		if (criteria === 'รับจองล่วงหน้า') return <IconReservation color="#1fc300" size="1.5rem" />
-		if (criteria === 'สามารถนำสัตว์เลี้ยงเข้าได้') return <IconPet color="#1fc300" size="1.5rem" />
-		return <IconCar color="#1fc300" size="1.5rem" />
+	const getIcon = (criteria, key) => {
+		if (criteria === 'รับจองล่วงหน้า')
+			return <IconReservation key={key} color="#1fc300" size="1.5rem" />
+		if (criteria === 'สามารถนำสัตว์เลี้ยงเข้าได้')
+			return <IconPet key={key} color="#1fc300" size="1.5rem" />
+		return <IconCar key={key} color="#1fc300" size="1.5rem" />
 	}
 
 	return (
@@ -61,7 +63,7 @@ export const AppCard = ({ data }: AppCardProps) => {
 				<p>
 					<strong>เมนูแนะนำ:</strong> {recommendedItems.join(' ')}
 				</p>
-				<footer>{facilities.map((f) => getIcon(f))}</footer>
+				<footer>{facilities.map((f, i) => getIcon(f, i))}</footer>
 			</section>
 		</StyledCard>
 	)

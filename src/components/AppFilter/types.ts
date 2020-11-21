@@ -5,6 +5,7 @@ export interface AppFilterProps {
 	currentCategory: number
 	changeCurrentCategory: (event: ChangeEvent<HTMLInputElement>) => void
 	provinces: string[]
+	currentProvince: number
 	changeCurrentProvince: (event: ChangeEvent<HTMLSelectElement>) => void
 	priceRange: string[]
 	changeCurrentPriceRange: (event: ChangeEvent<HTMLSelectElement>) => void

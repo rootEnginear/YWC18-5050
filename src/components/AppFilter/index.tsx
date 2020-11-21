@@ -8,6 +8,7 @@ export const AppFilter = ({
 	currentCategory,
 	changeCurrentCategory,
 	provinces,
+	currentProvince,
 	changeCurrentProvince,
 	priceRange,
 	changeCurrentPriceRange,
@@ -27,14 +28,15 @@ export const AppFilter = ({
 			<FormSelect
 				label="จังหวัด/ใกล้ฉัน"
 				data={provinces}
+				value={currentProvince}
 				onChangeHandler={changeCurrentProvince}
 			/>
 			<FormSelect label="ราคา" data={priceRange} onChangeHandler={changeCurrentPriceRange} />
-			{subCategories.length ? (
+			{subCategories.length > 1 ? (
 				<FormRadioGroup
 					groupName={categories ? categories[currentCategory] : 'subcatg'}
 					label={`ประเภท${categories && categories[currentCategory]}`}
-					data={['ทั้งหมด', ...(subCategories || [])]}
+					data={subCategories}
 					currentIndex={currentSubCategories}
 					onChangeHandler={changeCurrentSubCategories}
 				/>

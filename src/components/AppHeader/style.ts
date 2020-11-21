@@ -82,10 +82,6 @@ export const SearchBoxContainer = styled.div`
 			display: none;
 			transition: box-shadow 0.3s;
 
-			&:hover {
-				background: #f8f8f8;
-			}
-
 			&:focus {
 				z-index: 1;
 				box-shadow: 0 0 0 4px #1990ff33;
