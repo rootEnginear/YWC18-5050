@@ -5,7 +5,7 @@ import { IconFilter, IconSearch } from 'components/AppIcon'
 import { AppHeaderProps } from './types'
 
 const Logo = () => (
-	<a href="/">
+	<a href=".">
 		<PictureLogo>
 			<source srcSet="img/logo.png" type="image/png" media={`screen and (${isDesktop})`} />
 			<source srcSet="img/logo_small.png" type="image/png" />

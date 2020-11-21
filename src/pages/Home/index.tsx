@@ -11,8 +11,8 @@ import useGeolocation from 'hooks/useGeolocation'
 
 export default function Home() {
 	const pages = [
-		{ name: 'หน้าแรก', url: '/' },
-		{ name: 'ค้นหา', url: '/' },
+		{ name: 'หน้าแรก', url: '.' },
+		{ name: 'ค้นหา', url: '.' },
 	]
 
 	const [geoProvince, setGeoProvince] = useState('')
