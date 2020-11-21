@@ -23,6 +23,7 @@ export const StyledFilter = styled.aside`
 
 	@media screen and (${isDesktop}) {
 		position: static;
+		transition: 0s transform;
 
 		${(props) =>
 			props.show

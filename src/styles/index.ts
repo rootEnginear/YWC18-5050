@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
 		background-size: contain;
 		background-repeat: no-repeat;
 		padding-bottom: 5rem;
+		min-height: 100vh;
 	}
 
 	h1 {
