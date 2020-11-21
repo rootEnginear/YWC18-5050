@@ -9,7 +9,7 @@ const Logo = () => (
 		<PictureLogo>
 			<source srcSet="img/logo.png" type="image/png" media={`screen and (${isDesktop})`} />
 			<source srcSet="img/logo_small.png" type="image/png" />
-			<img src="img/logo_small.png" alt="คนละครึ่ง" />
+			<img src="img/logo_small.png" alt="คนละครึ่ง" width="168" height="44" />
 		</PictureLogo>
 	</a>
 )
@@ -44,16 +44,21 @@ export const AppHeader = ({
 								))}
 						</select>
 						<input
+							aria-label="กล่องค้นหา"
 							className="searchbox-input"
 							type="text"
-							placeholder="ค้นหา ชื่อ ร้านอาหาร และเครื่องดื่ม ร้านธงฟ้า ร้านค้า OTOP และสินค้าทั่วไป"
+							placeholder="ค้นหาชื่อร้านอาหารและเครื่องดื่ม ร้านธงฟ้า ร้านค้า OTOP และสินค้าทั่วไป"
 							value={searchString}
 							onChange={changeSearchString}
 							onKeyPress={(e) => {
 								if (e.key === 'Enter') sumbitSearchString()
 							}}
 						/>
-						<button className="searchbox-button" type="button" onClick={sumbitSearchString}>
+						<button
+							className="searchbox-button"
+							type="button"
+							onClick={sumbitSearchString}
+							aria-label="เริ่มค้นหา">
 							<IconSearch />
 						</button>
 					</SearchBoxContainer>

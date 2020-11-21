@@ -14,6 +14,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				{/* External Files */}
 				<link rel="preconnect" href="https://cdn.jsdelivr.net/" />
 				<link rel="dns-prefetch" href="https://cdn.jsdelivr.net/" />
+				<link rel="preconnect" href="https://api.longdo.com/" />
+				<link rel="dns-prefetch" href="https://api.longdo.com/" />
 				<link
 					rel="stylesheet"
 					href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"
