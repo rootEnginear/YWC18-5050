@@ -7,6 +7,7 @@ import { AppFilter } from 'components/AppFilter'
 import { API_STATES, useApi } from 'hooks/useApi'
 import { AppCard } from 'components/AppCard'
 import { FilterCol, SearchHeader } from './style'
+import useGeolocation from 'hooks/useGeolocation'
 
 export default function Home() {
 	const pages = [
@@ -14,16 +15,29 @@ export default function Home() {
 		{ name: 'ค้นหา', url: '/' },
 	]
 
+	const [geoProvince, setGeoProvince] = useState('')
+	const onGeolocationUpdate = async (geolocation) => {
+		const res = await fetch(
+			`https://api.longdo.com/map/services/address?lon=${geolocation.longitude}&lat=${geolocation.latitude}&key=9a82dd3143660325961e86489c5fe13f`
+		)
+		const { province } = await res.json()
+		setGeoProvince(province)
+	}
+	const geolocation = useGeolocation({}, onGeolocationUpdate)
+
 	const { state, error, data } = useApi()
 
 	useEffect(() => {
 		if (state === API_STATES.SUCCESS) {
 			setCategories(['ทั้งหมด'].concat(data?.categories.map((c) => c.name)))
-			setProvinces(['📌︎ พื้นที่ใกล้ฉัน', '🗺︎ สถานที่ทั้งหมด'].concat(data?.provinces))
+			const provincePreset = !geolocation.error
+				? ['📌︎ พื้นที่ใกล้ฉัน', '🗺︎ สถานที่ทั้งหมด']
+				: ['🗺︎ สถานที่ทั้งหมด']
+			setProvinces(provincePreset.concat(data?.provinces))
 			setPriceRange(['ทั้งหมด'].concat(data?.priceRange))
 			setReverseCategoryLookupTable(generateLookupTable(data?.categories))
 		}
-	}, [state])
+	}, [state, geolocation])
 
 	// Reverse SubCategories to Main Category Lookup Table
 	const [reverseCategoryLookupTable, setReverseCategoryLookupTable] = useState(null)
@@ -85,8 +99,21 @@ export default function Home() {
 		const filterByName = (merchant) =>
 			!currentSearchString || new RegExp(currentSearchString, 'i').test(merchant.shopNameTH)
 
-		const filterByProvince = (merchant) =>
-			currentProvince <= 1 || merchant.addressProvinceName === provinces[currentProvince]
+		const filterByProvince = (merchant) => {
+			if (!geolocation.error) {
+				// no error so 0 = geo, 1 = all
+				if (currentProvince === 0) {
+					onGeolocationUpdate(geolocation)
+					return merchant.addressProvinceName === geoProvince
+				} else if (currentProvince > 1)
+					return merchant.addressProvinceName === provinces[currentProvince]
+				return true
+			} else {
+				// has error so 0 = all
+				if (currentProvince > 1) return merchant.addressProvinceName === provinces[currentProvince]
+				return true
+			}
+		}
 
 		const filterByPrice = (merchant) =>
 			!currentPriceRange || merchant.priceLevel === currentPriceRange
@@ -111,6 +138,7 @@ export default function Home() {
 		data,
 		currentSearchString,
 		currentProvince,
+		geoProvince,
 		currentPriceRange,
 		currentSubCategories,
 		currentCategory,
