@@ -20,9 +20,18 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				/>
 
 				{/* Favicon */}
+				<link rel="apple-touch-icon" sizes="180x180" href="/YWC18-5050/apple-touch-icon.png" />
+				<link rel="icon" type="image/png" sizes="32x32" href="/YWC18-5050/favicon-32x32.png" />
+				<link rel="icon" type="image/png" sizes="16x16" href="/YWC18-5050/favicon-16x16.png" />
+				<link rel="manifest" href="/YWC18-5050/site.webmanifest" />
+				<link rel="mask-icon" href="/YWC18-5050/safari-pinned-tab.svg" color="#1990ff" />
+				<link rel="shortcut icon" href="/YWC18-5050/favicon.ico" />
+				<meta name="msapplication-TileColor" content="#1990ff" />
+				<meta name="msapplication-config" content="/YWC18-5050/browserconfig.xml" />
+				<meta name="theme-color" content="#ffffff" />
 
 				{/* SEO */}
-				<meta name="description" content="..." />
+				<meta name="description" content="คนละครึ่ง" />
 			</Head>
 			<GlobalStyle />
 			<Component {...pageProps} />
