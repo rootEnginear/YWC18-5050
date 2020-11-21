@@ -1,3 +1,4 @@
+import { IconCar, IconPet, IconReservation } from 'components/AppIcon'
 import { StatusBadge, StyledCard } from './style'
 import { AppCardProps } from './types'
 
@@ -25,6 +26,12 @@ export const AppCard = ({ data }: AppCardProps) => {
 		.replace(/\>/g, '&gt;')
 		.replace(/&lt;strong&gt;/g, '<strong>')
 		.replace(/&lt;\/strong&gt;/g, '</strong>')
+
+	const getIcon = (criteria) => {
+		if (criteria === 'รับจองล่วงหน้า') return <IconReservation color="#1fc300" size="1.5rem" />
+		if (criteria === 'สามารถนำสัตว์เลี้ยงเข้าได้') return <IconPet color="#1fc300" size="1.5rem" />
+		return <IconCar color="#1fc300" size="1.5rem" />
+	}
 
 	return (
 		<StyledCard>
@@ -54,7 +61,7 @@ export const AppCard = ({ data }: AppCardProps) => {
 				<p>
 					<strong>เมนูแนะนำ:</strong> {recommendedItems.join(' ')}
 				</p>
-				<footer>{facilities.join(' ')}</footer>
+				<footer>{facilities.map((f) => getIcon(f))}</footer>
 			</section>
 		</StyledCard>
 	)
