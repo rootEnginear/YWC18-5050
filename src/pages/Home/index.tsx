@@ -167,7 +167,7 @@ export default function Home() {
 			<Container>
 				{state === API_STATES.ERROR ? (
 					<>
-						<img src="/img/error.svg" alt="เกิดข้อผิดพลาด" width="40%" />
+						<img src="img/error.svg" alt="เกิดข้อผิดพลาด" width="40%" />
 						<h1 style={{ textAlign: 'center' }}>เกิดข้อผิดพลาดทางระบบขึ้น</h1>
 						<p style={{ textAlign: 'center' }}>กรุณาแจ้งผู้พัฒนาและลองใหม่ในภายหลัง</p>
 					</>
@@ -198,7 +198,7 @@ export default function Home() {
 							<Col>
 								{filteredMerchants?.length === 0 ? (
 									<>
-										<img src="/img/not_found.svg" alt="ไม่พบสถานที่ที่คุณกำลังหา" width="40%" />
+										<img src="img/not_found.svg" alt="ไม่พบสถานที่ที่คุณกำลังหา" width="40%" />
 										<h1 style={{ textAlign: 'center' }}>ไม่พบสถานที่ที่คุณกำลังหา</h1>
 										<p style={{ textAlign: 'center' }}>
 											ร้านค้าที่ท่านค้นหาอาจไม่ได้เข้าร่วมโครงการคนละครึ่ง
