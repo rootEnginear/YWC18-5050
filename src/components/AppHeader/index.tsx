@@ -21,6 +21,7 @@ export const AppHeader = ({
 	searchString,
 	changeSearchString,
 	sumbitSearchString,
+	filterToggler,
 }: AppHeaderProps) => {
 	return (
 		<StyledHeader>
@@ -58,7 +59,7 @@ export const AppHeader = ({
 					</SearchBoxContainer>
 				</Col>
 				<ColFilter fit paddingless>
-					<FilterButton type="button">
+					<FilterButton type="button" onClick={filterToggler}>
 						<IconFilter color={colorAccented} size="24px" />
 					</FilterButton>
 				</ColFilter>

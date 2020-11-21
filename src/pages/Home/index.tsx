@@ -145,6 +145,10 @@ export default function Home() {
 		currentCategory,
 	])
 
+	// Floating Search
+	const [isFilterShown, setIsFilterShown] = useState(false)
+	const toggleFilter = () => setIsFilterShown(!isFilterShown)
+
 	return (
 		<>
 			<Head>
@@ -157,6 +161,7 @@ export default function Home() {
 				searchString={searchString}
 				changeSearchString={changeSearchString}
 				sumbitSearchString={changeCurrentSearchString}
+				filterToggler={toggleFilter}
 			/>
 			<AppBreadcrumb pages={pages} />
 			<Container>
@@ -186,6 +191,7 @@ export default function Home() {
 										subCategories,
 										currentSubCategories,
 										changeCurrentSubCategories,
+										isFilterShown,
 									}}
 								/>
 							</FilterCol>

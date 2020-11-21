@@ -15,9 +15,10 @@ export const AppFilter = ({
 	subCategories,
 	currentSubCategories,
 	changeCurrentSubCategories,
+	isFilterShown,
 }: AppFilterProps) => {
 	return (
-		<StyledFilter>
+		<StyledFilter show={isFilterShown}>
 			<FormRadioGroup
 				groupName="catg"
 				label="ประเภทร้านค้า"

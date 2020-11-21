@@ -12,4 +12,5 @@ export interface AppFilterProps {
 	subCategories: string[]
 	currentSubCategories: number
 	changeCurrentSubCategories: (event: ChangeEvent<HTMLInputElement>) => void
+	isFilterShown: boolean
 }

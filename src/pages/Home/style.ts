@@ -7,10 +7,10 @@ export const SearchHeader = styled.h1`
 `
 
 export const FilterCol = styled(Col)`
-	display: none;
+	padding: 0;
 
 	@media screen and (${isDesktop}) {
-		display: block;
+		padding: 0 0.5rem;
 	}
 `
 

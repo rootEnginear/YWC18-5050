@@ -7,4 +7,5 @@ export interface AppHeaderProps {
 	searchString: string
 	changeSearchString: (event: ChangeEvent<HTMLInputElement>) => void
 	sumbitSearchString: () => void
+	filterToggler: () => void
 }
